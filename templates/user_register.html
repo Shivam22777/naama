@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Passenger Registration — Namma Sarthi{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <span class="auth-icon">🚍</span>
+            <h2>Passenger Registration</h2>
+            <p>Create an account to track buses and view live ETAs</p>
+        </div>
+
+        <form method="POST" action="{% url 'user_register' %}" class="auth-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="e.g. Ananya Sharma" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="e.g. 9123456789" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Create a password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Register Passenger</button>
+        </form>
+
+        <div class="auth-footer">
+            <p>Already have an account? <a href="{% url 'user_login' %}">Login here</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

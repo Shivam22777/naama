@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Driver Login — Namma Sarthi{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <span class="auth-icon">🚌</span>
+            <h2>Driver Login</h2>
+            <p>Access your driver dashboard</p>
+        </div>
+
+        <form method="POST" action="{% url 'driver_login' %}" class="auth-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter registered phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required>
+            </div>
+
+            <button type="submit" class="btn btn-secondary btn-block">Login to Dashboard</button>
+        </form>
+
+        <div class="auth-footer">
+            <p>New driver? <a href="{% url 'driver_register' %}">Register here</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

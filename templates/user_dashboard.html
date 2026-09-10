@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Find Your Bus — Namma Sarthi{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <div>
+            <h1>Find Your Bus</h1>
+            <p class="user-greeting">Welcome, <strong>{{ passenger.name }}</strong> (📱 {{ passenger.phone_number }})</p>
+        </div>
+        <div>
+            <a href="{% url 'user_logout' %}" class="btn btn-outline-danger">Logout</a>
+        </div>
+    </div>
+
+    <!-- Live Current Time Clock Banner -->
+    <div class="current-time-banner card" style="padding: 0.85rem 1.25rem; display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; background: #0f172a; color: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(15,23,42,0.1);">
+        <div style="font-weight: 700; font-size: 0.95rem; color: #94a3b8; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🕐 CURRENT TIME</span>
+        </div>
+        <div id="live-current-clock" style="font-size: 1.4rem; font-weight: 800; color: #38bdf8; font-family: monospace;">
+            --:-- --
+        </div>
+    </div>
+
+    <!-- Bus Search Card -->
+    <div class="card search-card">
+        <div class="card-header">
+            <h2>🔍 Search Government Bus Routes</h2>
+            <p>Select your starting stop and destination from our dataset</p>
+        </div>
+        <div class="card-body">
+            <form id="bus-search-form" class="search-form-grid">
+                <div class="form-group">
+                    <label for="source_stop">Source Stop</label>
+                    <select id="source_stop" name="source" class="form-control" required>
+                        <option value="">-- Select Source ▼ --</option>
+                        {% for stop_name in stop_names %}
+                            <option value="{{ stop_name }}">{{ stop_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="destination_stop">Destination Stop</label>
+                    <select id="destination_stop" name="destination" class="form-control" disabled required>
+                        <option value="">-- Select Source First --</option>
+                    </select>
+                </div>
+
+                <div class="form-actions-search">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">SEARCH BUSES</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Search Results Container -->
+    <div class="search-results-section">
+        <div id="results-loading" class="text-center d-none">
+            <div class="spinner"></div>
+            <p>Searching for live buses on route...</p>
+        </div>
+
+        <div id="no-buses-alert" class="alert alert-info d-none">
+            <span class="info-icon">ℹ️</span>
+            <div>
+                <strong>No live buses found for this route.</strong>
+                <p>Ensure a driver has registered and started a journey on this route in the Driver Portal.</p>
+            </div>
+        </div>
+
+        <div id="bus-cards-container" class="bus-cards-grid">
+            <!-- Dynamically populated via AJAX fetch -->
+        </div>
+    </div>
+</div>
+
+<!-- Live Map Modal -->
+<div id="map-modal" class="modal-backdrop d-none">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div>
+                <h3 id="modal-bus-title">🚌 Live Bus Tracker</h3>
+                <p id="modal-route-subtitle" class="subtext">Updating live location every 5 seconds</p>
+            </div>
+            <button type="button" id="btn-close-modal" class="btn-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div id="modal-delay-notice" class="alert alert-warning d-none">
+                <strong>⚠️ BUS DELAYED:</strong> <span id="modal-delay-reason"></span>
+            </div>
+            <div id="passenger-map" class="map-container modal-map"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

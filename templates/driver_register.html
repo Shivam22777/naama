@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block title %}Driver Registration — Namma Sarthi{% endblock %}
+
+{% block content %}
+<div class="auth-container" style="max-width: 600px;">
+    <div class="auth-card">
+        <div class="auth-header">
+            <span class="auth-icon">🚌</span>
+            <h2>Driver Registration</h2>
+            <p>Save your permanent driver and bus details once</p>
+        </div>
+
+        <form method="POST" action="{% url 'driver_register' %}" class="auth-form">
+            {% csrf_token %}
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="name">Driver Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="e.g. Shivam Verma" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="e.g. 9876543210" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Create a secure password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bus_number">Bus Registration Number</label>
+                    <input type="text" id="bus_number" name="bus_number" class="form-control" placeholder="e.g. KA-09-F-1234" value="KA-09-F-1234" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="route_select">Select Route</label>
+                    <select id="route_select" name="route_id" class="form-control" required>
+                        <option value="">-- Choose Dataset Route --</option>
+                        {% for r in routes %}
+                            <option value="{{ r.route_id }}" data-service="{{ r.service_type }}">
+                                {{ r.route_id }} — {{ r.route_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="start_stop_select">Default Starting Stop</label>
+                    <select id="start_stop_select" name="start_stop_id" class="form-control" disabled required>
+                        <option value="">-- Select Route First --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="dest_stop_select">Default Destination Stop</label>
+                    <select id="dest_stop_select" name="dest_stop_id" class="form-control" disabled required>
+                        <option value="">-- Select Starting Stop First --</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-secondary btn-block btn-lg" style="margin-top: 1rem;">Register Driver & Save Bus Profile</button>
+        </form>
+
+        <div class="auth-footer">
+            <p>Already registered? <a href="{% url 'driver_login' %}">Login as Driver</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const routeSelect = document.getElementById('route_select');
+    const startStopSelect = document.getElementById('start_stop_select');
+    const destStopSelect = document.getElementById('dest_stop_select');
+
+    let currentRouteStops = [];
+
+    if (routeSelect) {
+        routeSelect.addEventListener('change', async (e) => {
+            const routeId = e.target.value;
+            startStopSelect.innerHTML = '<option value="">Loading stops...</option>';
+            startStopSelect.disabled = true;
+            destStopSelect.innerHTML = '<option value="">-- Select Starting Stop First --</option>';
+            destStopSelect.disabled = true;
+
+            if (!routeId) return;
+
+            try {
+                const res = await fetch(`/api/route-stops/${routeId}/`);
+                const data = await res.json();
+                currentRouteStops = data.stops || [];
+
+                startStopSelect.innerHTML = '<option value="">-- Select Starting Stop --</option>';
+                currentRouteStops.forEach(s => {
+                    const opt = document.createElement('option');
+                    opt.value = s.id;
+                    opt.textContent = `#${s.stop_seq} ${s.stop_village_name} (${s.district})`;
+                    opt.dataset.seq = s.stop_seq;
+                    startStopSelect.appendChild(opt);
+                });
+                startStopSelect.disabled = false;
+            } catch (err) {
+                console.error(err);
+            }
+        });
+
+        startStopSelect.addEventListener('change', (e) => {
+            const selectedOpt = startStopSelect.options[startStopSelect.selectedIndex];
+            if (!selectedOpt || !selectedOpt.dataset.seq) return;
+
+            const startSeq = parseInt(selectedOpt.dataset.seq, 10);
+            destStopSelect.innerHTML = '<option value="">-- Select Destination Stop --</option>';
+
+            const validDestStops = currentRouteStops.filter(s => s.stop_seq > startSeq);
+            validDestStops.forEach(s => {
+                const opt = document.createElement('option');
+                opt.value = s.id;
+                opt.textContent = `#${s.stop_seq} ${s.stop_village_name} (${s.district})`;
+                destStopSelect.appendChild(opt);
+            });
+
+            destStopSelect.disabled = false;
+        });
+    }
+});
+</script>
+{% endblock %}

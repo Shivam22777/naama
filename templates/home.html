@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Namma Sarthi — Your Bus. Your Route. Your Time.{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title">NAMMA SARTHI</h1>
+        <p class="hero-subtitle">Your Bus. Your Route. Your Time.</p>
+        <p class="hero-description">
+            Namma Sarthi helps passengers track government buses in real time and helps drivers communicate delays and
+            unexpected stoppages instantly.
+        </p>
+
+        <div class="role-cards-grid">
+            <!-- Passenger Card -->
+            <div class="role-card passenger-card">
+                <div class="role-icon">🚍</div>
+                <h2 class="role-title">Passenger</h2>
+                <p class="role-desc">Select your source and destination to find live buses, view real-time location on
+                    map, check ETAs, and receive delay alerts.</p>
+                <div class="role-actions">
+                    <a href="{% url 'user_dashboard' %}" class="btn btn-primary btn-block">Track Your Bus</a>
+                    <div class="auth-sublinks">
+                        <a href="{% url 'user_login' %}">Login</a> • <a href="{% url 'user_register' %}">Register</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Driver Card -->
+            <div class="role-card driver-card">
+                <div class="role-icon">🚌</div>
+                <h2 class="role-title">Driver</h2>
+                <p class="role-desc">Select your official KSRTC dataset route, start your journey with Real Live GPS,
+                    and report stoppages.</p>
+                <div class="role-actions">
+                    <a href="{% url 'driver_dashboard' %}" class="btn btn-secondary btn-block">Start Your Journey</a>
+                    <div class="auth-sublinks">
+                        <a href="{% url 'driver_login' %}">Login</a> • <a
+                            href="{% url 'driver_register' %}">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="container">
+        <h2 class="section-title">Key System Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📍</div>
+                <h3>Real Live GPS Tracking</h3>
+                <p>Tracks bus location continuously using real device GPS coordinates during the trip.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <h3>Accurate Route ETAs</h3>
+                <p>Calculates stop ETAs and destination arrival times directly using cumulative route distances and
+                    travel times.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚠️</div>
+                <h3>Stoppage & Delay Notices</h3>
+                <p>Detects 10-minute bus stoppages and prompts drivers for reasons (traffic, breakdowns, roadworks) to
+                    alert passengers.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

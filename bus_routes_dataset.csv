@@ -1,0 +1,62 @@
+Route_ID,Route_Name,Service_Type,Stop_Seq,Stop_Village_Name,District,Taluk,Stop_Category,Cumulative_Dist_km,Stop_Dwell_min,Cumulative_Travel_Time_min
+BLR-MYS-01,Bengaluru to Mysuru,Stopping Service,1,Kempegowda Bus Station (Majestic),Bengaluru,Urban,Major Hub,0.00,0,0
+BLR-MYS-01,Bengaluru to Mysuru,Stopping Service,2,Kengeri TTMC,Bengaluru,Urban,Major Hub,16.55,2,7
+BLR-MYS-01,Bengaluru to Mysuru,Stopping Service,3,Bidadi,Ramanagara,Ramanagara,Small Stop,34.02,5,24
+BLR-MYS-01,Bengaluru to Mysuru,Stopping Service,4,Ramanagara Bus Stand,Ramanagara,Ramanagara,Major Hub,49.05,7,77
+BLR-MYS-01,Bengaluru to Mysuru,Stopping Service,5,Channapatna Bus Stand,Ramanagara,Channapatna,Major Hub,61.05,9,86
+BLR-MYS-01,Bengaluru to Mysuru,Stopping Service,6,Maddur Bus Stand,Mandya,Maddur,Major Hub,81.05,13,107
+BLR-MYS-01,Bengaluru to Mysuru,Stopping Service,7,Mandya KSRTC Bus Stand,Mandya,Mandya,Major Hub,99.05,15,159
+BLR-MYS-01,Bengaluru to Mysuru,Stopping Service,8,Srirangapatna Bus Stand,Mandya,Srirangapatna,Major Hub,124.05,19,197
+BLR-MYS-01,Bengaluru to Mysuru,Stopping Service,9,Mysuru KSRTC Suburb Stand,Mysuru,Mysuru,Destination,143.00,22,222
+MYS-BLR-01,Mysuru to Bengaluru,Stopping Service,1,Mysuru KSRTC Suburb Stand,Mysuru,Mysuru,Major Hub,0.00,0,0
+MYS-BLR-01,Mysuru to Bengaluru,Stopping Service,2,Srirangapatna Bus Stand,Mandya,Srirangapatna,Major Hub,19.05,30,30
+MYS-BLR-01,Mysuru to Bengaluru,Stopping Service,3,Mandya KSRTC Bus Stand,Mandya,Mandya,Major Hub,44.05,68,68
+MYS-BLR-01,Mysuru to Bengaluru,Stopping Service,4,Maddur Bus Stand,Mandya,Maddur,Major Hub,62.05,97,97
+MYS-BLR-01,Mysuru to Bengaluru,Stopping Service,5,Channapatna Bus Stand,Ramanagara,Channapatna,Major Hub,82.05,129,129
+MYS-BLR-01,Mysuru to Bengaluru,Stopping Service,6,Ramanagara Bus Stand,Ramanagara,Ramanagara,Major Hub,94.05,150,150
+MYS-BLR-01,Mysuru to Bengaluru,Stopping Service,7,Bidadi,Ramanagara,Ramanagara,Small Stop,109.02,172,172
+MYS-BLR-01,Mysuru to Bengaluru,Stopping Service,8,Kengeri TTMC,Bengaluru,Urban,Major Hub,126.55,200,200
+MYS-BLR-01,Mysuru to Bengaluru,Stopping Service,9,Kempegowda Bus Station (Majestic),Bengaluru,Urban,Destination,143.00,222,222
+BLR-MYS-EXP,Bengaluru to Mysuru,Non-Stop (Flybus/Airavat),1,Kempegowda Bus Station (Majestic),Bengaluru,Urban,Major Hub,0.00,0,0
+BLR-MYS-EXP,Bengaluru to Mysuru,Non-Stop (Flybus/Airavat),2,Mysuru KSRTC Suburb Stand,Mysuru,Mysuru,Destination,140.00,12,120
+BLR-TMK-01,Bengaluru to Tumakuru,Stopping Service,1,Kempegowda Bus Station (Majestic),Bengaluru,Urban,Major Hub,0.00,0,0
+BLR-TMK-01,Bengaluru to Tumakuru,Stopping Service,2,Yeshwantpur TTMC,Bengaluru,Urban,Major Hub,7.55,15,15
+BLR-TMK-01,Bengaluru to Tumakuru,Stopping Service,3,Dasarahalli,Bengaluru,Urban,Small Stop,14.02,26,26
+BLR-TMK-01,Bengaluru to Tumakuru,Stopping Service,4,Nelamangala Bus Stand,Bengaluru Rural,Nelamangala,Major Hub,28.05,50,50
+BLR-TMK-01,Bengaluru to Tumakuru,Stopping Service,5,Kulavanahalli Cross,Bengaluru Rural,Nelamangala,Small Stop,42.02,71,71
+BLR-TMK-01,Bengaluru to Tumakuru,Stopping Service,6,Dobbspet (Sompura),Bengaluru Rural,Nelamangala,Small Stop,51.02,85,85
+BLR-TMK-01,Bengaluru to Tumakuru,Stopping Service,7,Kyathsandra,Tumakuru,Tumakuru,Small Stop,65.02,106,106
+BLR-TMK-01,Bengaluru to Tumakuru,Stopping Service,8,Tumakuru KSRTC Bus Stand,Tumakuru,Tumakuru,Destination,71.00,114,114
+TMK-BLR-01,Tumakuru to Bengaluru,Stopping Service,1,Tumakuru KSRTC Bus Stand,Tumakuru,Tumakuru,Major Hub,0.00,0,0
+TMK-BLR-01,Tumakuru to Bengaluru,Stopping Service,2,Kyathsandra,Tumakuru,Tumakuru,Small Stop,6.02,10,10
+TMK-BLR-01,Tumakuru to Bengaluru,Stopping Service,3,Dobbspet (Sompura),Bengaluru Rural,Nelamangala,Small Stop,20.02,31,31
+TMK-BLR-01,Tumakuru to Bengaluru,Stopping Service,4,Kulavanahalli Cross,Bengaluru Rural,Nelamangala,Small Stop,29.02,45,45
+TMK-BLR-01,Tumakuru to Bengaluru,Stopping Service,5,Nelamangala Bus Stand,Bengaluru Rural,Nelamangala,Major Hub,43.05,69,69
+TMK-BLR-01,Tumakuru to Bengaluru,Stopping Service,6,Dasarahalli,Bengaluru,Urban,Small Stop,57.02,90,90
+TMK-BLR-01,Tumakuru to Bengaluru,Stopping Service,7,Yeshwantpur TTMC,Bengaluru,Urban,Major Hub,63.55,104,104
+TMK-BLR-01,Tumakuru to Bengaluru,Stopping Service,8,Kempegowda Bus Station (Majestic),Bengaluru,Urban,Destination,71.00,114,114
+BLR-TMK-EXP,Bengaluru to Tumakuru,Non-Stop (Point-to-Point),1,Kempegowda Bus Station (Majestic),Bengaluru,Urban,Major Hub,0.00,0,0
+BLR-TMK-EXP,Bengaluru to Tumakuru,Non-Stop (Point-to-Point),2,Tumakuru KSRTC Bus Stand,Tumakuru,Tumakuru,Destination,71.00,75,75
+YDG-SHP-01,Yadgir to Shahapur,Semi-Express Transit,1,Yadgir City Central Bus Stand,Yadgir,Yadgir,Major Hub,0.00,0,0
+YDG-SHP-01,Yadgir to Shahapur,Semi-Express Transit,2,Hattikuni Village,Yadgir,Yadgir,Small Stop,14.52,24,24
+YDG-SHP-01,Yadgir to Shahapur,Semi-Express Transit,3,Saidapur Cross,Yadgir,Yadgir,Small Stop,31.02,51,51
+YDG-SHP-01,Yadgir to Shahapur,Semi-Express Transit,4,Shahapur Bus Stand,Yadgir,Shahapur,Destination,52.00,85,85
+BLG-NAR-01,Belagavi to Narendra Bypass,Regional Feeder,1,Belagavi City CBT,Belagavi,Belagavi,Major Hub,0.00,0,0
+BLG-NAR-01,Belagavi to Narendra Bypass,Regional Feeder,2,Suvarna Vidhana Soudhа,Belagavi,Belagavi,Small Stop,11.02,19,19
+BLG-NAR-01,Belagavi to Narendra Bypass,Regional Feeder,3,Kondaskoppa Village,Belagavi,Belagavi,Small Stop,16.52,29,29
+BLG-NAR-01,Belagavi to Narendra Bypass,Regional Feeder,4,Kittur Toll Plaza / Bus Stop,Belagavi,Bailhongal,Major Hub,44.05,73,73
+BLG-NAR-01,Belagavi to Narendra Bypass,Regional Feeder,5,Narendra Cross / Bypass,Dharwad,Dharwad,Destination,68.00,107,107
+VIJ-KLB-01,Vijayapura to Kalaburagi,Inter-District Transit,1,Vijayapura (Bijapur) City Bus Stand,Vijayapura,Vijayapura,Major Hub,0.00,0,0
+VIJ-KLB-01,Vijayapura to Kalaburagi,Inter-District Transit,2,Kavalagi Village,Vijayapura,Vijayapura,Small Stop,18.02,26,26
+VIJ-KLB-01,Vijayapura to Kalaburagi,Inter-District Transit,3,Sindagi KSRTC Bus Stand,Vijayapura,Sindagi,Major Hub,60.05,87,87
+VIJ-KLB-01,Vijayapura to Kalaburagi,Inter-District Transit,4,Jevargi Bus Stand,Kalaburagi,Jevargi,Major Hub,112.05,161,161
+VIJ-KLB-01,Vijayapura to Kalaburagi,Inter-District Transit,5,Kalaburagi Central Bus Stand,Kalaburagi,Kalaburagi,Destination,154.00,217,217
+BID-CHG-01,Bidar to Chincholi,District Transit,1,Bidar City Central Bus Stand,Bidar,Bidar,Major Hub,0.00,0,0
+BID-CHG-01,Bidar to Chincholi,District Transit,2,Bagdal Village,Bidar,Bidar,Small Stop,21.02,34,34
+BID-CHG-01,Bidar to Chincholi,District Transit,3,Mannaekhelli Cross,Bidar,Humnabad,Major Hub,37.05,63,63
+BID-CHG-01,Bidar to Chincholi,District Transit,4,Chimkod Cross,Kalaburagi,Chincholi,Small Stop,52.02,88,88
+BID-CHG-01,Bidar to Chincholi,District Transit,5,Chincholi Bus Stand,Kalaburagi,Chincholi,Destination,68.00,114,114
+RAI-DEV-01,Raichur to Devadurga,Rural Feeder,1,Raichur District Bus Stand,Raichur,Raichur,Major Hub,0.00,0,0
+RAI-DEV-01,Raichur to Devadurga,Rural Feeder,2,Gabbur Cross,Raichur,Deodurga,Small Stop,26.02,54,54
+RAI-DEV-01,Raichur to Devadurga,Rural Feeder,3,Pachedoddi Village,Raichur,Deodurga,Small Stop,38.02,80,80
+RAI-DEV-01,Raichur to Devadurga,Rural Feeder,4,Devadurga Town Bus Stand,Raichur,Deodurga,Destination,56.00,118,118

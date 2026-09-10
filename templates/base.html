@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>{% block title %}Namma Sarthi — Your Bus. Your Route. Your Time.{% endblock %}</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Leaflet.js CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    {% csrf_token %}
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{% url 'home' %}" class="brand">
+                <span class="brand-icon">🚌</span>
+                <span class="brand-title">NAMMA SARTHI</span>
+            </a>
+            <div class="nav-links">
+                <a href="{% url 'home' %}" class="nav-item">Home</a>
+                <a href="{% url 'user_dashboard' %}" class="nav-item btn-nav-user">Passenger Portal</a>
+                <a href="{% url 'driver_dashboard' %}" class="nav-item btn-nav-driver">Driver Portal</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        {% if messages %}
+            <div class="messages-container">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p><strong>Namma Sarthi</strong> — Live Government Bus Tracking System</p>
+            <p class="subtext">Karnataka KSRTC Routes • Live Bus Tracking System</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'app.js' %}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
